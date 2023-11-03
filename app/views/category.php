@@ -30,7 +30,10 @@
                 <div class="contan">
                     <div class="styleCon">
 
-
+                    <?php
+                        echo '<pre>';
+                        print_r($data);
+                    ?>
 
 
 

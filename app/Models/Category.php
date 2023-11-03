@@ -1,12 +1,17 @@
 <?php
-    class Category{
-        public function index(){
-            return [
-                "a" => "apple",
-                "b" => "boll",
-                 "c" => [
-                    "d" => "doge",
-                 ]
-            ];
-        }
+class Category extends RModel
+{
+    public function __construct()
+    {
+        parent::__construct();
     }
+
+    public function index()
+    {
+        $sql = "SELECT * FROM classes";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
+}

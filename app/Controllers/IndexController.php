@@ -1,5 +1,5 @@
 <?php
-    class Index extends RController{
+    class IndexController extends RController{
         public function __construct()
         {
            parent::__construct();
@@ -9,7 +9,6 @@
         }
         public function category(){
             $data = array();
-
             $categoryModel = $this->load->model('Category');
             $data['categories'] =$categoryModel->index();
             $this->load->view("category", $data);

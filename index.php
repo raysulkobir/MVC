@@ -2,6 +2,8 @@
 require "system/libs/Main.php";
 require "system/libs/RController.php";
 require "system/libs/Load.php";
+require "system/libs//RModel.php";
+require "system/libs//Database.php";
 
 if (isset($_GET['url'])) {
     $url = $_GET['url'];
@@ -13,7 +15,9 @@ if (isset($_GET['url'])) {
         $methodName = $url[1];
         $param = isset($url[2]) ? $url[2] : null;
         // Check if the controller class exists
+        $controllerName = $controllerName."Controller";
         $controllerFile = "app/Controllers/{$controllerName}.php";
+  
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
 
@@ -33,8 +37,8 @@ if (isset($_GET['url'])) {
         echo "Invalid URL format";
     }
 } else {
-    require_once "app/Controllers/Index.php";
-    $index = new Index();
+    require_once "app/Controllers/IndexController.php";
+    $index = new IndexController();
     $index->home();
 }
 
