@@ -5,6 +5,9 @@ class RModel
 
     public function __construct()
     {
-        $this->db = new Database();
+        $dsn = "mysql:host=localhost;dbname=mvc";
+        $user = "root";
+        $pass = "";
+        $this->db = new Database($dsn, $user, $pass);
     }
 }

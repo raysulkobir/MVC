@@ -6,12 +6,20 @@ class Category extends RModel
         parent::__construct();
     }
 
-    public function index()
+    public function index($tableName)
     {
-        $sql = "SELECT * FROM classes";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        $result = $query->fetchAll();
-        return $result;
+        $sql = "SELECT * FROM $tableName";
+        return $this->db->select($sql);
+    }
+
+    public function categoryBYId($tableName, $id)
+    {
+        $sql = "SELECT * FROM $tableName WHERE id = :id";
+        $data = array(":id" => $id);
+        return $this->db->select($sql, $data);
+    }
+
+    public function insertCategory($tableName, $data){
+        return $this->db->insert($tableName, $data);
     }
 }
