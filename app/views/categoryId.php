@@ -3,9 +3,9 @@
 <head>
     <title>page title</title>
     <link rel="stylesheet" href="css/jquery-ui.min.css">
-    <link rel="stylesheet" href="http://mvc.ra/css/style.css">
-    <script src="http://mvc.ra/js/jquery.js"></script>
-    <script src="http://mvc.ra/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://mvc.test/css/style.css">
+    <script src="http://mvc.test/js/jquery.js"></script>
+    <script src="http://mvc.test/js/jquery-ui.min.js"></script>
 
 </head>
 

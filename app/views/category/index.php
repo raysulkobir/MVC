@@ -15,7 +15,7 @@
             <div class="row">
                 <header>
                     <div class="head">
-                        <div class="style">
+                        <div class="stuyle">
                             <h1>This is a header</h1>
                         </div>
                     </div>
@@ -29,35 +29,37 @@
             <div class="row">
                 <div class="contan">
                     <div class="styleCon">
-                        <?php
-                        echo @$data['msg'];
-                        ?>
-                        <form action="http://mvc.test/category/store" method="post">
-                            <table>
+                        <h1 class="headingOne">Categories List || <a href="http://mvc.test/category/create">Add</a></h1>
+                        <table border="2">
+                            <thead>
                                 <tr>
-                                    <td class="">Name:</td>
-                                    <td class=""><input type="text" name="name"></td>
+                                    <th>Name</th>
+                                    <th>Activity</th>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="submit" value="Save"></td>
-
-                                </tr>
-                            </table>
-                        </form>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($data['categories'] as $category) { ?>
+                                    <tr>
+                                        <td><?php echo $category['name'] ?></td>
+                                        <td>
+                                            <a href="">Edit</a> || <a href="">Delete</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <section class="container-fluid">
         <div class="container">
             <div class="row">
                 <footer>
                     <div class="footer">
-                        <div class="style">
+                        <div class="stuyle">
                             <h1>This is a footer</h1>
                         </div>
                     </div>

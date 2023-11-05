@@ -1,13 +1,9 @@
 <?php
 
     class Load{
-        public function view($fileName, $folderName = null, $data = [])
+        public function view($fileName, $data = [])
         {
-            if ($folderName !== null) {
-                include "app/views/$folderName/$fileName.php";
-            } else {
-                include "app/views/$fileName.php";
-            }
+            include "app/views/$fileName.php";
 
             if (!empty($data)) {
                 extract($data);

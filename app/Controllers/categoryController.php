@@ -1,37 +1,29 @@
 <?php
-class IndexController extends RController
+class categoryController extends RController
 {
     public function __construct()
     {
         parent::__construct();
     }
-    public function home()
-    {
-        $this->load->view("home");
-    }
-    public function category()
+
+    public function index()
     {
         $data = array();
         $tableName = "categories";
         $categoryModel = $this->load->model('Category');
         $data['categories'] = $categoryModel->index($tableName);
-        $this->load->view("category", $data);
+        $this->load->view("category/index", $data);
     }
-    public function categoryBYId()
+    public function create()
     {
         $data = array();
         $tableName = "categories";
-        $category_id = 1;
         $categoryModel = $this->load->model('Category');
-        $data['category'] = $categoryModel->categoryBYId($tableName, $category_id);
-        $this->load->view("categoryId", $data);
+        $data['categories'] = $categoryModel->index($tableName);
+        $this->load->view("category/create", $data);
     }
-    public function createCategory()
+    public function store()
     {
-        $this->load->view("create", "category");
-    }
-
-    public function insertCategory(){
         $data = [
             "name" => $_POST['name']
         ];
@@ -39,12 +31,20 @@ class IndexController extends RController
         $tableName = "categories";
         $categoryModel = $this->load->model('Category');
         $result = $categoryModel->insertCategory($tableName, $data);
-        // return $result;
         if ($result == 1) {
             $data['msg'] = "Data was successfully inserted.";
         } else {
             $data['msg'] = "Failed to insert data: ";
         }
-        $this->load->view("create", "category", $data);
+        $this->load->view("category/create", $data);
+    }
+    public function edit()
+    {
+    }
+    public function update()
+    {
+    }
+    public function delete()
+    {
     }
 }

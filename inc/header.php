@@ -13,7 +13,7 @@
                 <div class="row">
                     <header>
 						<div class="head">
-							<div class="stuyle">
+							<div class="style">
 								<h1>This is a header</h1>
 							</div>
 					    </div>
