@@ -1,9 +1,14 @@
 <?php
-require "system/libs/Main.php";
-require "system/libs/RController.php";
-require "system/libs/Load.php";
-require "system/libs//RModel.php";
-require "system/libs//Database.php";
+function customAutoLoader($className) {
+    $classFile = 'system/libs/' . $className . '.php';
+    if (file_exists($classFile)) {
+        require_once $classFile;
+        return true;
+    }
+    return false;
+}
+
+spl_autoload_register("customAutoLoader");
 
 if (isset($_GET['url'])) {
     $url = $_GET['url'];

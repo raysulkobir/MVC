@@ -35,4 +35,19 @@ class Database extends PDO
         }
         return $stmt->execute();
     }
+
+    public function update($tableName, $id, $data = array()){
+        $updateKeys = null;
+        foreach ($data as $key => $value) {
+            $updateKeys .= "$key=:$key,";
+        }
+        $updateKeys = rtrim($updateKeys, ",");
+        $sql = "UPDATE $tableName SET $updateKeys WHERE $id";
+        $stmt = $this->prepare($sql);
+        
+        foreach ($data as $key => $value) {
+            $stmt->bindParam(":" . $key, $value, PDO::PARAM_STR);
+        }
+        return $stmt->execute();
+    }
 }

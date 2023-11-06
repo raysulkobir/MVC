@@ -12,14 +12,24 @@ class Category extends RModel
         return $this->db->select($sql);
     }
 
-    public function categoryBYId($tableName, $id)
+    public function show($tableName, $id)
     {
         $sql = "SELECT * FROM $tableName WHERE id = :id";
         $data = array(":id" => $id);
         return $this->db->select($sql, $data);
     }
 
-    public function insertCategory($tableName, $data){
+    public function store($tableName, $data)
+    {
         return $this->db->insert($tableName, $data);
+    }
+
+    public function update($tableName, $id, $data)
+    {
+        return $this->db->update($tableName, $id, $data);
+    }
+
+    public function delete()
+    {
     }
 }
