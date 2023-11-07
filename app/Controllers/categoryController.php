@@ -42,31 +42,41 @@ class categoryController extends RController
     {
         $data = array();
         $tableName = "categories";
+        $id = "2";
         $categoryModel = $this->load->model('Category');
-        $data['categories'] = [];
-        // $data['categories'] = $categoryModel->edit($tableName);
+        $data['category'] = $categoryModel->edit($tableName, $id);
         $this->load->view("category/edit", $data);
     }
     public function update()
     {
-        $tableName = "categories";
-
+        $id = $_POST['id'];
+        $name = $_POST['name'];
         $data = [
-            "name" => "kamal",
+            "name" => $name,
         ];
-        $id = "id = 1";
+        $id = "id =$id";
+        $tableName = "categories";
 
         $categoryModel = $this->load->model('Category');
         $result = $categoryModel->update($tableName, $id, $data);
-        // if ($result == 1) {
-        //     $data['msg'] = "Data was successfully inserted.";
-        // } else {
-        //     $data['msg'] = "Failed to insert data: ";
-        // }
-        // $this->load->view("category/create", $data);
+        if ($result == 1) {
+            $data['msg'] = "Category Update successfully.";
+        } else {
+            $data['msg'] = "Failed to insert data: ";
+        }
         $this->load->view("category/edit", $data);
     }
     public function delete()
     {
+        $tableName = "categories";
+        $id = "id=1";
+        $categoryModel = $this->load->model('Category');
+        $result = $categoryModel->delete($tableName, $id);
+        if ($result == 1) {
+            $data['msg'] = "Delete successfully.";
+        } else {
+            $data['msg'] = "Failed to insert data: ";
+        }
+        $this->load->view("category/index", $data);
     }
 }

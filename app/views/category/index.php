@@ -3,6 +3,7 @@
 <head>
     <title>page title</title>
     <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="http://mvc.test/css/style.css">
     <script src="http://mvc.test/js/jquery.js"></script>
     <script src="http://mvc.test/js/jquery-ui.min.js"></script>
@@ -16,7 +17,7 @@
                 <header>
                     <div class="head">
                         <div class="stuyle">
-                            <h1>This is a header</h1>
+                            <h1 class="primary">This is a header</h1>
                         </div>
                     </div>
                 </header>
@@ -24,7 +25,7 @@
         </div>
     </section>
 
-    <section class="container-fluid">
+    <section class=" container-fluid">
         <div class="container">
             <div class="row">
                 <div class="contan">

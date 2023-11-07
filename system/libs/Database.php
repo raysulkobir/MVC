@@ -16,7 +16,7 @@ class Database extends PDO
     {
         $stmt = $this->prepare($sql);
         foreach ($data as $key => $value) {
-            $stmt->bindParam($key, $value, PDO::PARAM_STR);
+            $stmt->bindParam($key, $value);
         }
         $stmt->execute();
         $result = $stmt->fetchAll($fetchSystem);
@@ -49,5 +49,10 @@ class Database extends PDO
             $stmt->bindParam(":" . $key, $value, PDO::PARAM_STR);
         }
         return $stmt->execute();
+    }
+
+    public function delete($tableName, $id){
+        $sql = "DELETE FROM $tableName WHERE $id";
+        return $this->exec($sql);
     }
 }

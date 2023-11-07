@@ -32,18 +32,23 @@
                         <?php
                         echo @$data['msg'];
                         ?>
-                        <form action="http://mvc.test/category/update" method="post">
-                            <table>
-                                <tr>
-                                    <td class="">Name:</td>
-                                    <td class=""><input type="text" name="name"></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="submit" value="Save"></td>
-
-                                </tr>
-                            </table>
+                        <form action="http://mvc.ra/category/update" method="post">
+                            <?php
+                            if (isset($data['category'])) {
+                                foreach ($data['category'] as $category) { ?>
+                                    <table>
+                                        <tr>
+                                            <td class="">Name:</td>
+                                            <td class=""><input type="hidden" name="id" value="<?php echo $category['id'] ?>"></td>
+                                            <td class=""><input type="text" name="name" value="<?php echo $category['name'] ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" value="Save"></td>
+                                        </tr>
+                                    </table>
+                            <?php }
+                            } ?>
                         </form>
                     </div>
                 </div>

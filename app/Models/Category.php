@@ -24,12 +24,18 @@ class Category extends RModel
         return $this->db->insert($tableName, $data);
     }
 
+    public function edit($tableName, $id){
+        $sql = "SELECT * FROM $tableName WHERE id = :id";
+        $data = array(":id" => $id);
+        return $this->db->select($sql, $data);
+    }
     public function update($tableName, $id, $data)
     {
         return $this->db->update($tableName, $id, $data);
     }
 
-    public function delete()
+    public function delete($tableName, $id)
     {
+        return $this->db->delete($tableName, $id);
     }
 }

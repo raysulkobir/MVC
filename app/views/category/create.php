@@ -30,7 +30,7 @@
                 <div class="contan">
                     <div class="styleCon">
                         <?php
-                        echo @$data['msg'];
+                            echo @$data['msg'];
                         ?>
                         <form action="http://mvc.test/category/store" method="post">
                             <table>
