@@ -55,4 +55,16 @@ class Database extends PDO
         $sql = "DELETE FROM $tableName WHERE $id";
         return $this->exec($sql);
     }
+
+    public function affectedRows($sql, $data = array(), $fetchSystem = PDO::FETCH_ASSOC)
+    {
+        $stmt = $this->prepare($sql);
+        foreach ($data as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+        return $result;
+    }
+
 }
