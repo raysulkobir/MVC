@@ -24,19 +24,29 @@ class categoryController extends RController
     }
     public function store()
     {
+        $input = $this->load->validation("Validation");
+        $input->post("name")->isEmpty();
+   
+        $name = $input->values['name'];
         $data = [
-            "name" => $_POST['name']
+            "name" => $name,
         ];
 
-        $tableName = "categories";
-        $categoryModel = $this->load->model('Category');
-        $result = $categoryModel->store($tableName, $data);
-        if ($result == 1) {
-            $data['msg'] = "Data was successfully inserted.";
-        } else {
-            $data['msg'] = "Failed to insert data: ";
+        if($input->submit()){
+            $tableName = "categories";
+            $categoryModel = $this->load->model('Category');
+            $result = $categoryModel->store($tableName, $data);
+            if ($result == 1) {
+                $data['msg'] = "Data was successfully inserted.";
+            } else {
+                $data['msg'] = "Failed to insert data: ";
+            }
+            $this->load->view("category/create", $data);
+        }else{
+            print_r($input->getErrors());
         }
-        $this->load->view("category/create", $data);
+
+
     }
     public function edit()
     {

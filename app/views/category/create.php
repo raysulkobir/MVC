@@ -32,7 +32,7 @@
                         <?php
                             echo @$data['msg'];
                         ?>
-                        <form action="http://mvc.test/category/store" method="post">
+                        <form action="<?php BASE_URL ?>/category/store" method="post">
                             <table>
                                 <tr>
                                     <td class="">Name:</td>
